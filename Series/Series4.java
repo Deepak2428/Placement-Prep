@@ -5,23 +5,25 @@ class Series4
     {
         Scanner scn= new Scanner(System.in);
         int n=scn.nextInt();
-        int a=1;
-        int b=2;
-        int c=3;
-        int sum=0;
+        int arr[]= new int[n];
+        arr[0]=1;
+        arr[1]=2;
+        arr[2]=3;
+        int sum=1+2+3;
         boolean flag=true;
-        for(int i=3;i<=n;i++)
+        for(int i=3;i<n;i++)
         {
             if(flag)
             {
-                sum+=a+b+c;
+                arr[i]=arr[i-3]+arr[i-2]+arr[i-1];
+                sum+=arr[i];
+                flag=!flag;
             }
             else
             {
-                a=b;
-                b=c;
-                c=b+c;
-                sum+=b+c;
+                arr[i]=arr[i-2]+arr[i-1];
+                sum+=arr[i];
+                flag=!flag;
             }
         }
         System.out.println(sum);
